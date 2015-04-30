@@ -2,24 +2,23 @@
 <html>
 	<head>
 		<title>Buscar Empleado</title>
+		<asset:stylesheet src="bootstrap.css"/>
+		<asset:javascript src="jquery-2.1.3.js"/>
+		<asset:javascript src="bootstrap.js"/>
 	</head>
 	<body>
-		    <div>
-				<p>Buscar Empleado</p>
-			</div>
+		<div class="container">	    
+			<div class="panel panel-default">
+			  <div class="panel-heading">Buscar Empleado</div>
 
-        	<div>
-				<g:form method="post" controller="empleado" action="buscarEmpleadoPorLegajo">
-					<div>
-						<h2>Legajo:</h2>
-						<g:textField placeholder="Ingrese el numero de legajo" id="campoLegajo" name="legajo" value="${myValue}" />
-					</div>
-					
-					<br>
-					<br>			
-					<button id="botonAgregarEmpleado"><a>Buscar Empleado</a> </button>		
-				</g:form>
-			</div>
-	  
+			  <g:form method="post" controller="empleado" action="buscarEmpleadoPorLegajo" class="form-inline">
+				  <div class="form-group">
+				    <label for="exampleInputName2">Legajo</label>
+				    <g:textField class="form-control" id="campoLegajo" placeholder="Jane Doe" placeholder="Ingrese el numero de legajo" name="legajo" value="${myValue}" />
+				  </div>
+				  <button type="submit" class="btn btn-default" id="botonAgregarEmpleado">Buscar</button>
+			  </g:form>
+		     </div>		
+		</div>	  
 	</body>
 </html>

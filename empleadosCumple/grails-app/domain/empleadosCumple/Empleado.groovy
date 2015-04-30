@@ -13,7 +13,5 @@ class Empleado {
 		apellido nullable:false
 		fechaCumple nullable:false
 		legajo nullable:false
-    }
-
-    
+    }    
 }

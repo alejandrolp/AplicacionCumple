@@ -1,9 +1,9 @@
 package empleadosCumple
 
-
 import java.text.DateFormat
+import grails.transaction.Transactional
 
-
+@Transactional
 class EmpleadoService {
 	
 	def agregar(nombre, apellido,legajo, fecha){
@@ -23,5 +23,4 @@ class EmpleadoService {
 	def buscar(legajo){
 		def empleadoLegajo = Empleado.findByLegajo(legajo);
 	}
-
 }

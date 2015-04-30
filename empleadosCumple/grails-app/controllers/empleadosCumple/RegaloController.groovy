@@ -1,15 +1,28 @@
 package empleadosCumple
 
+
+import org.springframework.web.servlet.ModelAndView
+
 class RegaloController {
-	
-//	static allowedMethods = [volver: 'GET']
-	
-//	def volver={
-//		 http://localhost:8080/aplicacion-curso/ingrediente/volver
-//	}
+	def regaloService;
 	
 	def index={
 //		redirect(action : volver)
+	}
+	
+	def agregarRegalo (){
+		[idEmpleado: params.id];
+		
+		
+	}
+	
+	def agregarRegaloEmpleado (){
+		def legajoEmpleado= params.idEmpleado
+		def empleado = params.nombreProducto;
+		def nombreProducto = params.nombreProducto;
+		def urlProducto = params.urlProducto;
+		regaloService.agregarRegaloEmpleado(legajoEmpleado,nombreProducto, urlProducto);
+		redirect(controller: "Empleado", action:"index");
 	}
 }
 

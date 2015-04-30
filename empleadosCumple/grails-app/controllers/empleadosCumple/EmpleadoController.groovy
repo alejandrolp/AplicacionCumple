@@ -23,18 +23,14 @@ class EmpleadoController {
 		redirect(controller: "Empleado", action:"index");
 	}
 	
-	def agregarEmpleado() {
-
-	}
+	def agregarEmpleado() {}
 	
-	def buscarEmpleado (){
-		
-	}
+	def buscarEmpleado (){}
 	
 	def buscarEmpleadoPorLegajo (){
 		def legajo = params.legajo;
 		def empleadoLegajo = empleadoService.buscar(legajo);
-		new ModelAndView("/empleado/gestionarEmpleado",[unEmpleado:empleadoLegajo])
-		
+		new ModelAndView("/empleado/gestionarEmpleado",[unEmpleado:empleadoLegajo])		
 	}
 }
+
