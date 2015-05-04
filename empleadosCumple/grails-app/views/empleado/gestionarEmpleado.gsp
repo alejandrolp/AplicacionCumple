@@ -29,7 +29,7 @@
 		            	<input type="hidden" name="idEmpleado" value="${idEmpleado}"/>
 		           		<a href="${createLink(controller:"regalo", action:"agregarRegalo",id:"${unEmpleado.legajo}")}">Agregar regalo</a></br>
 		           		<a href="${createLink(controller:"regalo", action:"cambiarRegalo")}">Cambiar regalo</a></br>
-		           		<a href="${createLink(controller:"empleado", action:"eliminarEmpleado")}">Eliminar empleado</a>
+		           		<a href="${createLink(controller:"empleado", action:"eliminarEmpleado",id:"${unEmpleado.legajo}")}">Eliminar empleado</a>
 		            </td>
 		            <td>
 					      <g:each in="${unEmpleado.regalos}" var="regalo">						          

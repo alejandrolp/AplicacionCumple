@@ -1,5 +1,6 @@
 package empleadosCumple
 
+
 import org.springframework.web.servlet.ModelAndView
 
 class EmpleadoController {
@@ -18,9 +19,9 @@ class EmpleadoController {
 		def apellido = params.apellido;
 		def legajo = params.legajo;
 		def fecha = params.fecha;
-		empleadoService.agregar(nombre, apellido,legajo, fecha);
+		empleadoService.agregar(nombre, apellido,legajo, fecha)
 //		new ModelAndView("/empleado/crearEmpleado")
-		redirect(controller: "Empleado", action:"index");
+		redirect(controller: "Empleado", action:"index")
 	}
 	
 	def agregarEmpleado() {}
@@ -32,5 +33,10 @@ class EmpleadoController {
 		def empleadoLegajo = empleadoService.buscar(legajo);
 		new ModelAndView("/empleado/gestionarEmpleado",[unEmpleado:empleadoLegajo])		
 	}
+	
+	def eliminarEmpleado(){
+		def legajoEmpleado= params.id
+		empleadoService.eliminar(legajoEmpleado)
+		redirect(controller: "Empleado", action:"index")
+	}
 }
-
