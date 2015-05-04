@@ -18,10 +18,11 @@
 		            <th>Empleado</th> 
 		            <th>Fecha cumple</th>  
 		            <th>Legajo</th> 
-		            <th>Opciones</th>            
+		            <th>Opciones</th>
+		            <th>Regalos</th>            
 		        </tr>
 		        <tr >
-		            <td>${unEmpleado.nombre}</td>
+		            <td>${unEmpleado.nombre} ${unEmpleado.apellido}</td>
 		            <td>${unEmpleado.fechaCumple}</td>
 		            <td>${unEmpleado.legajo}</td>
 		            <td>
@@ -30,6 +31,11 @@
 		           		<a href="${createLink(controller:"regalo", action:"cambiarRegalo")}">Cambiar regalo</a></br>
 		           		<a href="${createLink(controller:"empleado", action:"eliminarEmpleado")}">Eliminar empleado</a>
 		            </td>
+		            <td>
+					      <g:each in="${unEmpleado.regalos}" var="regalo">						          
+					           <a href="${regalo.url}">${regalo.url}</a>
+					      </g:each>   
+				        </td>
 		        </tr>
 			  </table>
 		</div>	    
