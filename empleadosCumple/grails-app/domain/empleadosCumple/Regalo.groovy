@@ -4,6 +4,7 @@ class Regalo {
 	
 	String titulo
 	String url
+	Date fechaRegalo
 
 	static belongsTo = Empleado
 
