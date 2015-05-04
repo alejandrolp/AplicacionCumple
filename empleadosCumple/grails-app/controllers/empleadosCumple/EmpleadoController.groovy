@@ -19,9 +19,12 @@ class EmpleadoController {
 		def apellido = params.apellido;
 		def legajo = params.legajo;
 		def fecha = params.fecha;
-		empleadoService.agregar(nombre, apellido,legajo, fecha)
-//		new ModelAndView("/empleado/crearEmpleado")
-		redirect(controller: "Empleado", action:"index")
+		if(empleadoService.agregar(nombre, apellido,legajo, fecha)){
+			redirect(controller: "Empleado", action:"index")
+		}else{
+			new ModelAndView("/empleado/error")
+		}
+		
 	}
 	
 	def agregarEmpleado() {}

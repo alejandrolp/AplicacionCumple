@@ -28,7 +28,7 @@
 		            <td>
 		            	<input type="hidden" name="idEmpleado" value="${idEmpleado}"/>
 		           		<a href="${createLink(controller:"regalo", action:"agregarRegalo",id:"${unEmpleado.legajo}")}">Agregar regalo</a></br>
-		           		<a href="${createLink(controller:"regalo", action:"agregarRegalo",id:"${unEmpleado.legajo}")}">Cambiar regalo</a></br>
+		           		<a href="${createLink(controller:"regalo", action:"cambiarRegalo")}">Cambiar regalo</a></br>
 		           		<a href="${createLink(controller:"empleado", action:"eliminarEmpleado",id:"${unEmpleado.legajo}")}">Eliminar empleado</a>
 		            </td>
 		            <td>
