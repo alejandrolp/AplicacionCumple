@@ -7,11 +7,11 @@ import grails.transaction.Transactional
 class EmpleadoService {
 	
 	def agregar(nombre, apellido,legajo, fecha){
-		//if(Empleado.findByLegajo(legajo)){
+		if(!Empleado.findByLegajo(legajo)){
 			def nuevoEmpleado = new Empleado (nombre: nombre, apellido:apellido,legajo:legajo, fechaCumple: Date.parse("yyyy-MM-dd",fecha));
 			nuevoEmpleado.save(flush:true);
 			true
-		//}else{false}
+		}else{false}
 	}
 	
 	def eliminar(legajo){
@@ -34,6 +34,6 @@ class EmpleadoService {
 	}
 	
 	def buscar(legajo){
-		def empleadoLegajo = Empleado.findByLegajo(legajo);
+		def empleadoLegajo = Empleado.findByLegajo(legajo)		
 	}
 }
