@@ -4,6 +4,6 @@
 		<title>Error</title>
 	</head>
 	<body>
-		Error al crear un empleado
+		<h3>${mje}</h3>
 	</body>
 </html>

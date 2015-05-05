@@ -1,39 +1,48 @@
 package empleadosCumple
 
-import java.text.DateFormat
-import grails.transaction.Transactional
+import org.springframework.web.servlet.ModelAndView
 
-@Transactional
-class EmpleadoService {
+class EmpleadoController {
+		
+//	static allowedMethods = [agregarEmpleado: 'POST']
 	
-	def agregar(nombre, apellido,legajo, fecha){
-		if(!Empleado.findByLegajo(legajo)){
-			def nuevoEmpleado = new Empleado (nombre: nombre, apellido:apellido,legajo:legajo, fechaCumple: Date.parse("yyyy-MM-dd",fecha));
-			nuevoEmpleado.save(flush:true);
-			true
-		}else{false}
+	def empleadoService;
+	
+    def index={		
+		def results=empleadoService.listarEmpleados();
+		new ModelAndView("/empleado/index",[empleados:results])
 	}
 	
-	def eliminar(legajo){
-		def empleadoLegajo = Empleado.findByLegajo(legajo);
-		for (int i = 0; i < empleadoLegajo.regalos.size(); i++){
-			Regalo regalo = empleadoLegajo.regalos[i];
-			empleadoLegajo.regalos.remove(regalo);
-			regalo.delete(flush:true);
+	def crearEmpleado() {
+		def nombre = params.nombre;
+		def apellido = params.apellido;
+		def legajo = params.legajo;
+		def fecha = params.fecha;
+		if(empleadoService.agregar(nombre, apellido,legajo, fecha)){
+			redirect(controller: "Empleado", action:"index")
+		}else{
+			new ModelAndView("/empleado/error", [mje:"Error al crear empleado"])
 		}
-		empleadoLegajo.delete(flush:true);
+		
 	}
 	
+	def agregarEmpleado() {}
 	
-	def listarEmpleados(){			
-		int mesActual=new Date().month +1		
-		def empleadosMesActual = Empleado.where {
-			month(fechaCumple) == mesActual
-		}		
-		return empleadosMesActual
+	def buscarEmpleado (){}
+	
+	def buscarEmpleadoPorLegajo (){
+		def legajo = params.legajo;
+		def empleadoLegajo=empleadoService.buscar(legajo)
+		if(empleadoLegajo){
+			new ModelAndView("/empleado/gestionarEmpleado",[unEmpleado:empleadoLegajo])
+		}else{
+			new ModelAndView("/empleado/error", [mje:"No existe empleado"])
+		}
 	}
 	
-	def buscar(legajo){
-		def empleadoLegajo = Empleado.findByLegajo(legajo)		
+	def eliminarEmpleado(){
+		def legajoEmpleado= params.id
+		empleadoService.eliminar(legajoEmpleado)
+		redirect(controller: "Empleado", action:"index")
 	}
 }
