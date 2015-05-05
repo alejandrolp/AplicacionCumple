@@ -1,48 +1,39 @@
 package empleadosCumple
 
-import org.springframework.web.servlet.ModelAndView
+import java.text.DateFormat
+import grails.transaction.Transactional
 
-class EmpleadoController {
-		
-//	static allowedMethods = [agregarEmpleado: 'POST']
+@Transactional
+class EmpleadoService {
 	
-	def empleadoService;
-	
-    def index={		
-		def results=empleadoService.listarEmpleados();
-		new ModelAndView("/empleado/index",[empleados:results])
+	def agregar(nombre, apellido,legajo, fecha){
+		if(!Empleado.findByLegajo(legajo)){
+			def nuevoEmpleado = new Empleado (nombre: nombre, apellido:apellido,legajo:legajo, fechaCumple: Date.parse("yyyy-MM-dd",fecha));
+			nuevoEmpleado.save(flush:true);
+			true
+		}else{false}
 	}
 	
-	def crearEmpleado() {
-		def nombre = params.nombre;
-		def apellido = params.apellido;
-		def legajo = params.legajo;
-		def fecha = params.fecha;
-		if(empleadoService.agregar(nombre, apellido,legajo, fecha)){
-			redirect(controller: "Empleado", action:"index")
-		}else{
-			new ModelAndView("/empleado/error", [mje:"Error al crear empleado"])
+	def eliminar(legajo){
+		def empleadoLegajo = Empleado.findByLegajo(legajo);
+		for (int i = 0; i < empleadoLegajo.regalos.size(); i++){
+			Regalo regalo = empleadoLegajo.regalos[i];
+			empleadoLegajo.regalos.remove(regalo);
+			regalo.delete(flush:true);
 		}
-		
+		empleadoLegajo.delete(flush:true);
 	}
 	
-	def agregarEmpleado() {}
 	
-	def buscarEmpleado (){}
-	
-	def buscarEmpleadoPorLegajo (){
-		def legajo = params.legajo;
-		def empleadoLegajo=empleadoService.buscar(legajo)
-		if(empleadoLegajo){
-			new ModelAndView("/empleado/gestionarEmpleado",[unEmpleado:empleadoLegajo])
-		}else{
-			new ModelAndView("/empleado/error", [mje:"No existe empleado"])
-		}
+	def listarEmpleados(){			
+		int mesActual=new Date().month +1		
+		def empleadosMesActual = Empleado.where {
+			month(fechaCumple) == mesActual
+		}		
+		return empleadosMesActual
 	}
 	
-	def eliminarEmpleado(){
-		def legajoEmpleado= params.id
-		empleadoService.eliminar(legajoEmpleado)
-		redirect(controller: "Empleado", action:"index")
+	def buscar(legajo){
+		def empleadoLegajo = Empleado.findByLegajo(legajo)		
 	}
 }

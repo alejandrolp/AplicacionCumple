@@ -21,7 +21,7 @@ class EmpleadoController {
 		if(empleadoService.agregar(nombre, apellido,legajo, fecha)){
 			redirect(controller: "Empleado", action:"index")
 		}else{
-			new ModelAndView("/empleado/error")
+			new ModelAndView("/empleado/error", [mje:"Error al crear empleado"])
 		}
 		
 	}
@@ -36,7 +36,7 @@ class EmpleadoController {
 		if(empleadoLegajo){
 			new ModelAndView("/empleado/gestionarEmpleado",[unEmpleado:empleadoLegajo])
 		}else{
-			new ModelAndView("/empleado/error")
+			new ModelAndView("/empleado/error", [mje:"No existe empleado"])
 		}
 	}
 	
