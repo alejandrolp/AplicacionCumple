@@ -3,7 +3,7 @@ package empleadosCumple
 class Regalo {
 	
 	String titulo
-	String url
+	String nada //url
 	Date fechaRegalo
 
 	static belongsTo = Empleado
