@@ -8,8 +8,13 @@ class Regalo {
 
 	static belongsTo = Empleado
 
+	// alejandro
+
     static constraints = {    	
 		titulo nullable:false	
 		url nullable:false
+		// carlos
     }
+
+    // amendola
 }
