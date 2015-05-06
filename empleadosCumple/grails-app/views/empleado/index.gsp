@@ -40,7 +40,7 @@
 		        <g:else>
 						<p>No hay empleados</p>
 						</br>
-						<a href="${createLink(controller:"empleado", action:"agregarEmpleado")}">Agregar empleado</a>	        
+							<a href="${createLink(url:"agregarEmpleado")}">Agregar empleado</a>	        
 		        </g:else>
 		</div>	
 	    </div>

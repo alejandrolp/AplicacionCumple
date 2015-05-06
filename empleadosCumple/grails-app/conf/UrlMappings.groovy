@@ -8,6 +8,10 @@ class UrlMappings {
         }
 		
 		"/"(controller:"/empleado/index")
+        "/agregarEmpleado"(url:"agregarEmpleado.gsp")
+        "/buscarEmpleado"(url:"buscarEmpleado.gsp")
+
+        
 
 //        "/"(view:"/index")
         "500"(view:'/error')
