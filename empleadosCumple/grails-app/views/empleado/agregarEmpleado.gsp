@@ -52,8 +52,9 @@
 							<g:textField placeholder="Ingrese el numero de legajo" id="campoLegajo" name="legajo" value="${myValue}" />
 						</div>		
 						<div>
-						    <h3>Fecha (yyyy-MM-dd): </h3>
-							<input type="date" id="campoFecha" name="fecha">
+						    <h3>Fecha: </h3>
+							<g:datePicker id="campoFecha" name="fecha" precision="day"></g:datePicker>
+							
 						</div>				
 						<br>
 						<br>			
