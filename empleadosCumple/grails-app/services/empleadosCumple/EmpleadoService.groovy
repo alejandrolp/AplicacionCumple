@@ -8,7 +8,7 @@ class EmpleadoService {
 	
 	def agregar(nombre, apellido,legajo, fecha){
 		if(!Empleado.findByLegajo(legajo)){
-			def nuevoEmpleado = new Empleado (nombre: nombre, apellido:apellido,legajo:legajo, fechaCumple: Date.parse("yyyy-MM-dd",fecha));
+			def nuevoEmpleado = new Empleado (nombre: nombre, apellido:apellido,legajo:legajo, fechaCumple: fecha);
 			nuevoEmpleado.save(flush:true);
 			true
 		}else{false}

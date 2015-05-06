@@ -53,7 +53,8 @@
 						</div>		
 						<div>
 						    <h3>Fecha (yyyy-MM-dd): </h3>
-							<input type="date" id="campoFecha" name="fecha">
+							<g:datePicker id="campoFecha" name="fecha" precision="day"></g:datePicker>
+							
 						</div>				
 						<br>
 						<br>			
