@@ -9,6 +9,7 @@ class EmpleadoController {
 	def empleadoService;
 	
     def index={		
+    	println 'estoy en el index'
 		def results=empleadoService.listarEmpleados();
 		new ModelAndView("/empleado/index",[empleados:results])
 	}

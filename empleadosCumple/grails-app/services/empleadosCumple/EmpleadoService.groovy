@@ -25,8 +25,10 @@ class EmpleadoService {
 	}
 	
 	
-	def listarEmpleados(){			
+	def listarEmpleados(){		
+
 		int mesActual=new Date().month +1		
+		println 'mesActual: ' + mesActual
 		def empleadosMesActual = Empleado.where {
 			month(fechaCumple) == mesActual
 		}		

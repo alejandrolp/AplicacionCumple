@@ -41,7 +41,7 @@
 					<g:form method="post" controller="empleado" action="crearEmpleado"  onsubmit="return validarForm();">
 						<div>
 							<h3>Nombre:</h3>
-							<g:textField pattern="[A-Za-z]+" placeholder="Ingrese el nombre" id="campoNombre" name="nombre" value="${myValue}" />
+							<g:textField pattern="[A-Za-z\\s]*" placeholder="Ingrese el nombre" id="campoNombre" name="nombre" value="${myValue}" />
 						</div>
 						<div>
 						    <h3>Apellido:</h3>

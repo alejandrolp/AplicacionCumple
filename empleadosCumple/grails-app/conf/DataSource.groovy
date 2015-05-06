@@ -18,8 +18,8 @@ environments {
         dataSource {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/aplicacionCumple?Useunicode=yes&characterEncoding=UTF-8"
-            username = "andrea"
-            password = "andre123"
+            username = "root"
+            password = "root"
        
         }
     }
@@ -27,8 +27,8 @@ environments {
         dataSource {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/aplicacionCumple?Useunicode=yes&characterEncoding=UTF-8"
-            username = "andrea"
-            password = "andre123"
+            username = "root"
+            password = "root"
         }
     }
     production {
