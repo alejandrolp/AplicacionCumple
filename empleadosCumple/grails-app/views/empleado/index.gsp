@@ -22,8 +22,8 @@
 			        </tr>
 			         <g:each in="${empleados}" var="empleado">
 				        <tr >
-				            <td>${empleado.nombre}</td>
-				            <td>${empleado.fechaCumple}</td>
+				            <td>${empleado.nombre} ${empleado.apellido} </td>
+				            <td><g:formatDate format="dd-MM-yyyy" date="${empleado.fechaCumple}"/></td>
 				            <td>${empleado.legajo}</td>
 		 					<td>
 						      <g:each in="${empleado.regalos}" var="regalo">						          
