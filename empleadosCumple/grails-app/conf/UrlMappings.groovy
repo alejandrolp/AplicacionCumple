@@ -7,9 +7,9 @@ class UrlMappings {
             }
         }
 		
-		"/"(controller:"/empleado/index")
-        "/agregarEmpleado"(url:"agregarEmpleado.gsp")
-        "/buscarEmpleado"(url:"buscarEmpleado.gsp")
+		"/"(controller:'/empleado/index')
+        "/empleado/agregarEmpleado"(controller: 'empleado', view: 'agregarEmpleado')
+        "/empleado/buscarEmpleado"(controller: 'empleado', view: 'buscarEmpleado')
 
         
 

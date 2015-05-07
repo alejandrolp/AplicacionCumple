@@ -27,10 +27,6 @@ class EmpleadoController {
 		
 	}
 	
-	def agregarEmpleado() {}
-	
-	def buscarEmpleado (){}
-	
 	def buscarEmpleadoPorLegajo (){
 		def legajo = params.legajo;
 		def empleadoLegajo=empleadoService.buscar(legajo)
