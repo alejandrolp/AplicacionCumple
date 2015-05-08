@@ -1,19 +1,22 @@
 package empleadosCumple
 
 import org.springframework.web.servlet.ModelAndView
+import grails.plugin.springsecurity.annotation.Secured
+import grails.plugin.springsecurity.SpringSecurityUtils
 
-class EmpleadoController {
-		
+@Secured(['ROLE_ADMIN'])
+class EmpleadoController {   
+		  
 //	static allowedMethods = [agregarEmpleado: 'POST']
+	  
+	def empleadoService;  
 	
-	def empleadoService;
-	
-    def index={		
-    	println 'estoy en el index'
+    def index () {		 
+		def user = org.springframework.security.core.userdetails.User
 		def results=empleadoService.listarEmpleados();
-		new ModelAndView("/empleado/index",[empleados:results])
+		new ModelAndView("/empleado/index",[empleados:results, user: user])  
 	}
-	
+	     
 	def crearEmpleado() {
 		def nombre = params.nombre;
 		def apellido = params.apellido;
@@ -25,9 +28,9 @@ class EmpleadoController {
 			new ModelAndView("/empleado/error", [mje:"Error al crear empleado"])
 		}
 		
-	}
+	} 
 	
-	def buscarEmpleadoPorLegajo (){
+	def buscarEmpleadoPorLegajo (){ 
 		def legajo = params.legajo;
 		def empleadoLegajo=empleadoService.buscar(legajo)
 		if(empleadoLegajo){
@@ -36,10 +39,23 @@ class EmpleadoController {
 			new ModelAndView("/empleado/error", [mje:"No existe empleado"])
 		}
 	}
-	
+	  
+	 
 	def eliminarEmpleado(){
 		def legajoEmpleado= params.id
 		empleadoService.eliminar(legajoEmpleado)
-		redirect(controller: "Empleado", action:"index")
+		redirect(controller: "Empleado", action:"index") 
 	}
+
+	def agregarEmpleado() {} 
+
+	def buscarEmpleado() {}
+ 
+	def probando() {}
+
+	def logout() {
+		session.invalidate()
+		redirect uri: SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
+	}
+
 }
