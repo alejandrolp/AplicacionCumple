@@ -30,6 +30,7 @@
 			  return true;
 			}
 		</script>
+		<meta name="layout" content="empleadosLayout" />
 	</head>
 	<body>
   		<div class="container">	    

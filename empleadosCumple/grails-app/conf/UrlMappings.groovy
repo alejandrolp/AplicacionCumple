@@ -8,10 +8,10 @@ class UrlMappings {
         }
 		
 		"/"(controller:'/empleado/index')
+/*
         "/empleado/agregarEmpleado"(controller: 'empleado', view: 'agregarEmpleado')
         "/empleado/buscarEmpleado"(controller: 'empleado', view: 'buscarEmpleado')
-
-        
+*/
 
 //        "/"(view:"/index")
         "500"(view:'/error')

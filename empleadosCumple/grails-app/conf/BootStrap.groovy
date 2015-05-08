@@ -9,7 +9,7 @@ class BootStrap {
       def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
       def jp = new User(username: 'jp', password: 'jp')
-      jp.save(flush: true)
+      jp.save(flush: true) 
 
       def wo = new User(username: 'wo', password: 'wo')
       wo.save(flush: true)
@@ -18,7 +18,11 @@ class BootStrap {
       aa.save(flush: true)
 
       UserRole.create jp, adminRole, true
+      //UserRole.create jp, userRole, true
+
       UserRole.create wo, adminRole, true
+      //UserRole.create wo, userRole, true
+
       UserRole.create aa, userRole, true
 
       assert User.count() == 3
