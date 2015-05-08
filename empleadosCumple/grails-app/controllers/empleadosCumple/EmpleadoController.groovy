@@ -10,15 +10,8 @@ class EmpleadoController {
 //	static allowedMethods = [agregarEmpleado: 'POST']
 	  
 	def empleadoService
-	def springSecurityService
-	
 
     def index () {		 
-
-    	println '*********************************'
-    	println springSecurityService.isLoggedIn()
-    	println '*********************************'
-
 		def user = org.springframework.security.core.userdetails.User
 		def results=empleadoService.listarEmpleados();
 		new ModelAndView("/empleado/index",[empleados:results, user: user])  
