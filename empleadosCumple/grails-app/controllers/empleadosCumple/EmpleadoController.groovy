@@ -9,9 +9,16 @@ class EmpleadoController {
 		  
 //	static allowedMethods = [agregarEmpleado: 'POST']
 	  
-	def empleadoService;  
+	def empleadoService
+	def springSecurityService
 	
+
     def index () {		 
+
+    	println '*********************************'
+    	println springSecurityService.isLoggedIn()
+    	println '*********************************'
+
 		def user = org.springframework.security.core.userdetails.User
 		def results=empleadoService.listarEmpleados();
 		new ModelAndView("/empleado/index",[empleados:results, user: user])  
@@ -47,14 +54,14 @@ class EmpleadoController {
 		redirect(controller: "Empleado", action:"index") 
 	}
 
-	def agregarEmpleado() {} 
-
+	def agregarEmpleado() {}   
+ 
 	def buscarEmpleado() {}
  
-	def probando() {}
-
+ 	@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 	def logout() {
 		session.invalidate()
+		println SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
 		redirect uri: SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
 	}
 
