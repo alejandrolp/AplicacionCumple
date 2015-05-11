@@ -10,7 +10,6 @@ class EmpleadoService {
 		if(!Empleado.findByLegajo(legajo)){
 			def nuevoEmpleado = new Empleado (nombre: nombre, apellido:apellido,legajo:legajo, fechaCumple: fecha);
 			nuevoEmpleado.save(flush:true);
-			true
 		}else{false}
 	}
 	

@@ -10,6 +10,7 @@ class EmpleadoController {
 //	static allowedMethods = [agregarEmpleado: 'POST']
 	  
 	def empleadoService
+	def springSecurityService
 
     def index () {		 
 		def user = org.springframework.security.core.userdetails.User 
@@ -21,7 +22,7 @@ class EmpleadoController {
 		def nombre = params.nombre;
 		def apellido = params.apellido;
 		def legajo = params.legajo;
-		def fecha = params.fecha;  
+		def fecha = params.fecha;
 		if(empleadoService.agregar(nombre, apellido,legajo, fecha)){
 			redirect(controller: "Empleado", action:"index")
 		}else{
@@ -47,7 +48,13 @@ class EmpleadoController {
 		redirect(controller: "Empleado", action:"index") 
 	}
 
-	//def agregarEmpleado() {}   
+	def agregarEmpleado() {
+		def user = springSecurityService.getCurrentUser()	
+		def empresas = Empresa.where	{
+			user == user
+		}
+		new ModelAndView("/empleado/agregarEmpleado", [ empresas: empresas.list() ])
+	}   
  
 	//def buscarEmpleado() {}
  
