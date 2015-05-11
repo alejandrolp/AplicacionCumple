@@ -138,3 +138,4 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 // grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.gorm.failOnError = true

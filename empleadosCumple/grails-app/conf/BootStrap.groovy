@@ -35,6 +35,18 @@ class BootStrap {
       assert Role.count() == 3
       //assert UserRole.count() == 3
 
+      def empresa = new Empresa(nombre:'BVision SRL', cuit: '243523452', user: jp)
+      empresa.save(flush: true)
+
+      empresa = new Empresa(nombre:'Meli SRL', cuit: '243523452', user: jp)
+      empresa.save(flush: true)
+
+      empresa = new Empresa(nombre:'Maschwitz SRL', cuit: '243523452', user: jp)
+      empresa.save(flush: true)
+
+      empresa = new Empresa(nombre:'Sureña SRL', cuit: '243523452', user: wo)
+      empresa.save(flush: true)
+
     }
 
 }
