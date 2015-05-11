@@ -10,7 +10,7 @@ class UrlMappings {
 		
 		"/"(controller:'/empleado/index')
 
-        "/empleado/agregarEmpleado"(view: '/empleado/agregarEmpleado')
+        /* "/empleado/agregarEmpleado"(view: '/empleado/agregarEmpleado') */
         "/empleado/buscarEmpleado"(view: '/empleado/buscarEmpleado')
 
       "/listadoDeRegalos"(view: '/listadoDeRegalos/listarRegalos')

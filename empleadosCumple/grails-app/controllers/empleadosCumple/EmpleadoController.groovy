@@ -22,6 +22,12 @@ class EmpleadoController {
 		def apellido = params.apellido;
 		def legajo = params.legajo;
 		def fecha = params.fecha;  
+
+		println '##################################'
+		println params
+		println '             #####################'
+		println params.selectEmpresa
+		println '##################################'
 		if(empleadoService.agregar(nombre, apellido,legajo, fecha)){
 			redirect(controller: "Empleado", action:"index")
 		}else{
@@ -47,7 +53,25 @@ class EmpleadoController {
 		redirect(controller: "Empleado", action:"index") 
 	}
 
-	//def agregarEmpleado() {}   
+	def agregarEmpleado() {
+		def empresas = []
+
+ 		def jp = new User(username: 'jp', password: 'jp')
+		def wo = new User(username: 'wo', password: 'wo')
+        def aa = new User(username: 'aa', password: 'aa')
+
+		def e1 = new Empresa(nombre:'BVision SRL', cuit: '243523452', user: jp)
+	    def e2 = new Empresa(nombre:'Meli SRL', cuit: '243523452', user: jp)
+
+	    empresas.add(e1)
+	    empresas.add(e2)
+
+	    println "*************************"
+	    println empresas
+	    println "*************************"
+
+		new ModelAndView("/empleado/agregarEmpleado", [empresas: empresas] ) 
+	}   
  
 	//def buscarEmpleado() {}
  
