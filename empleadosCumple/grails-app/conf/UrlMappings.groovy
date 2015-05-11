@@ -13,7 +13,7 @@ class UrlMappings {
         /* "/empleado/agregarEmpleado"(view: '/empleado/agregarEmpleado') */
         "/empleado/buscarEmpleado"(view: '/empleado/buscarEmpleado')
 
-      "/listadoDeRegalos"(view: '/listadoDeRegalos/listarRegalos')
+        "/listadoDeRegalos"(view: '/listadoDeRegalos/listarRegalos')
 		
         "/empleados"(resources: 'employee')
         //"/employees" (controller: "employee" , action: "index", method: "GET")

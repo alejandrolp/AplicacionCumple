@@ -10,8 +10,9 @@ class EmpleadoController {
 //	static allowedMethods = [agregarEmpleado: 'POST']
 	  
 	def empleadoService
+	def springSecurityService
 
-    def index () {		 
+    def index () {	
 		def user = org.springframework.security.core.userdetails.User 
 		def results=empleadoService.listarEmpleados();
 		new ModelAndView("/empleado/index",[empleados:results, user: user])  
@@ -23,12 +24,10 @@ class EmpleadoController {
 		def legajo = params.legajo;
 		def fecha = params.fecha;  
 
-		println '##################################'
-		println params
-		println '             #####################'
-		println params.selectEmpresa
-		println '##################################'
-		if(empleadoService.agregar(nombre, apellido,legajo, fecha)){
+		def idEmpresa = params.selectEmpresa
+		def empresa = Empresa.get(idEmpresa)
+
+		if(empleadoService.agregar(nombre, apellido,legajo, fecha, empresa)){
 			redirect(controller: "Empleado", action:"index")
 		}else{
 			new ModelAndView("/empleado/error", [mje:"Error al crear empleado"])
@@ -53,24 +52,15 @@ class EmpleadoController {
 		redirect(controller: "Empleado", action:"index") 
 	}
 
+
+    
+
 	def agregarEmpleado() {
-		def empresas = []
-
- 		def jp = new User(username: 'jp', password: 'jp')
-		def wo = new User(username: 'wo', password: 'wo')
-        def aa = new User(username: 'aa', password: 'aa')
-
-		def e1 = new Empresa(nombre:'BVision SRL', cuit: '243523452', user: jp)
-	    def e2 = new Empresa(nombre:'Meli SRL', cuit: '243523452', user: jp)
-
-	    empresas.add(e1)
-	    empresas.add(e2)
-
-	    println "*************************"
-	    println empresas
-	    println "*************************"
-
-		new ModelAndView("/empleado/agregarEmpleado", [empresas: empresas] ) 
+		def user = springSecurityService.getCurrentUser()	
+		def empresas = Empresa.where	{
+			user == user
+		}
+		new ModelAndView("/empleado/agregarEmpleado", [ empresas: empresas.list() ])
 	}   
  
 	//def buscarEmpleado() {}
