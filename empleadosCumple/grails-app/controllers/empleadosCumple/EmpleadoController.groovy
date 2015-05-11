@@ -12,7 +12,7 @@ class EmpleadoController {
 	def empleadoService
 
     def index () {		 
-		def user = org.springframework.security.core.userdetails.User
+		def user = org.springframework.security.core.userdetails.User 
 		def results=empleadoService.listarEmpleados();
 		new ModelAndView("/empleado/index",[empleados:results, user: user])  
 	}
@@ -21,7 +21,7 @@ class EmpleadoController {
 		def nombre = params.nombre;
 		def apellido = params.apellido;
 		def legajo = params.legajo;
-		def fecha = params.fecha;
+		def fecha = params.fecha;  
 		if(empleadoService.agregar(nombre, apellido,legajo, fecha)){
 			redirect(controller: "Empleado", action:"index")
 		}else{

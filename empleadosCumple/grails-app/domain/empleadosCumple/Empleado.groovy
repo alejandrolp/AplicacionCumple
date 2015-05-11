@@ -1,4 +1,5 @@
 package empleadosCumple
+
 import java.util.Date
 
 class Empleado {
@@ -6,12 +7,17 @@ class Empleado {
 	String apellido
 	Date fechaCumple
 	String legajo
-	static hasMany = [regalos: Regalo]
+
+	Empresa empresa /* UNA empresa <posee> MUCHOS empleados */
+	User user
+
+	static hasMany = [Regalo]
 
     static constraints = {    	
 		nombre nullable:false
 		apellido nullable:false
 		fechaCumple nullable:false
 		legajo nullable:false
-    }    
+    }
+
 }
