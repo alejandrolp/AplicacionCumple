@@ -129,7 +129,12 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/**/favicon.ico':                ['permitAll'],
+    '/listadoDeRegalos/listarRegalos.gsp':           ['ROLE_API_ADMIN'],
+    '/empleado/agregarEmpleado.gsp':                    ['ROLE_API_ADMIN'],
+    '/empleado/buscarEmpleado.gsp':                    ['ROLE_API_ADMIN'],
+
+    
 ]
 
 // grails.plugin.springsecurity.fii.rejectPublicInvocations = false
