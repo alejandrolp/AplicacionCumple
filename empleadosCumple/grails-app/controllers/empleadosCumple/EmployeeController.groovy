@@ -2,7 +2,9 @@ package empleadosCumple
 
 import grails.rest.*
 import grails.converters.JSON
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_API_ADMIN'])
 class EmployeeController extends RestfulController {
 	
 	def empleadoService
@@ -15,6 +17,9 @@ class EmployeeController extends RestfulController {
 
 	def listGifts(){
 		def empleado = Empleado.findById(params.id)
-		render empleado.regalos as JSON
+		if(empleado){
+			render empleado.regalos as JSON
+		}
+		render JSON.parse('[]') 
 	}
 }

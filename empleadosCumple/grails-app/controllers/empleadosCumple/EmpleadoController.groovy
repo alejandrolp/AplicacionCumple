@@ -47,14 +47,13 @@ class EmpleadoController {
 		redirect(controller: "Empleado", action:"index") 
 	}
 
-	def agregarEmpleado() {}   
+	//def agregarEmpleado() {}   
  
-	def buscarEmpleado() {}
+	//def buscarEmpleado() {}
  
  	@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 	def logout() {
 		session.invalidate()
-		println SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
 		redirect uri: SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
 	}
 
