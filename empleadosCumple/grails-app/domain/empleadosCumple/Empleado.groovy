@@ -11,14 +11,14 @@ class Empleado {
 	Empresa empresa /* UNA empresa <posee> MUCHOS empleados */
 	User user
 
-	static hasMany = [regalo: Regalo]
+	static hasMany = [regalos: Regalo]
 
     static constraints = {    	
 		nombre nullable:false
 		apellido nullable:false
 		fechaCumple nullable:false
 		legajo nullable:false
-		user nullable:true
+		user nullable:true, unique:true
     }
 
 }

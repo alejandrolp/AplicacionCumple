@@ -11,14 +11,14 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
-	static hasOne = [empleado:Empleado]
+	/*static hasOne = [empleado:Empleado]*/
 
 	static transients = ['springSecurityService']
 
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
-		empleado nullable: true
+		/* empleado nullable: true */
 	}
 
 	static mapping = {

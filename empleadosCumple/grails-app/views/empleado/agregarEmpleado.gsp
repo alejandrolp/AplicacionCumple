@@ -55,8 +55,15 @@
 						<div>
 						    <h3>Fecha: </h3>
 							<g:datePicker id="campoFecha" name="fecha" precision="day"></g:datePicker>
-							
 						</div>				
+						<div>
+						    <h3>Empresa: </h3>
+							<g:select name="selectEmpresa"
+          							  from="${empresas}"          							  
+         							  value="${empresas.nombre}"
+         							  optionValue="nombre"
+         							  optionKey="id" />
+						</div>										
 						<br>
 						<br>			
 						<button id="botonAgregarEmpleado"><a>Agregar Empleado</a> </button>		

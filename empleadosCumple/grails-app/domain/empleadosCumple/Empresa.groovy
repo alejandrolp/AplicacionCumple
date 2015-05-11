@@ -4,8 +4,12 @@ class Empresa {
 
 	String nombre
 	String cuit
-	User user /* UNA user <maneja> MUCHAS empresas */
+	User user /* UN user <maneja> MUCHAS empresas */
 
     static constraints = {
+    }
+
+    String toString() {
+    	return id + " " + nombre + " " + cuit
     }
 }
