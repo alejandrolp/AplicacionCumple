@@ -147,6 +147,10 @@ select[multiple] {
     height: 25px;
 }
 
+select option.selected {
+	background-color: #000;
+}
+
 select[multiple] option{
 	margin: 0px;
 	padding: 0px;
@@ -218,6 +222,8 @@ button{
 	font-size: 20px;
 	font-style: bold;
 	font-size: 15px;
+	margin-left: 240px;
+    margin-top: 20px;
 }
 
 button:hover{

@@ -59,9 +59,10 @@
          							  optionValue="nombre"
          							  optionKey="id" />
 						</div>	
+						<button id="botonAgregarEmpleado"><img src="http://vignette3.wikia.nocookie.net/roblox/images/5/57/Very-Basic-Checkmark-icon.png/revision/latest?cb=20131125154354">Agregar</button>	
 					</g:form>
 			<footer>
-				<button id="botonAgregarEmpleado"><img src="http://vignette3.wikia.nocookie.net/roblox/images/5/57/Very-Basic-Checkmark-icon.png/revision/latest?cb=20131125154354">Agregar</button>	
+				
 			</footer>
 		</article>
 	</body>
