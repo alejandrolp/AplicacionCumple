@@ -115,3 +115,27 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'empleadosCumple.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'empleadosCumple.UserRole'
+grails.plugin.springsecurity.authority.className = 'empleadosCumple.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                              ['permitAll'],
+	'/index':                         ['permitAll'],
+	'/index.gsp':                     ['permitAll'],
+	'/assets/**':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/css/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll'],
+    '/listadoDeRegalos/listarRegalos.gsp':           ['ROLE_API_ADMIN'],
+    '/empleado/agregarEmpleado.gsp':                    ['ROLE_API_ADMIN'],
+    '/empleado/buscarEmpleado.gsp':                    ['ROLE_API_ADMIN'],
+
+    
+]
+
+// grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.gorm.failOnError = true

@@ -4,6 +4,7 @@
   		<asset:stylesheet src="bootstrap.css"/>
 		<asset:javascript src="jquery-2.1.3.js"/>
 		<asset:javascript src="bootstrap.js"/>
+		<meta name="layout" content="empleadosLayout" />
 	</head>
 	<body>
 

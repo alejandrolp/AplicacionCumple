@@ -4,6 +4,7 @@
   		<asset:stylesheet src="bootstrap.css"/>
 		<asset:javascript src="jquery-2.1.3.js"/>
 		<asset:javascript src="bootstrap.js"/>
+		<meta name="layout" content="empleadosLayout" />
 	</head>
 	<body>
 
@@ -33,16 +34,18 @@
 				        </tr>
 			        </g:each>
 			      </table>
-			      </br></br>
-			      <a href="${createLink(controller:"empleado", action:"agregarEmpleado")}">Agregar empleado</a></br>
+			      </br>
+			      <a href="${createLink(controller:"empleado", action:"agregarEmpleado")}">Agregar empleado
+                  <br>
 				  <a href="${createLink(controller:"empleado", action:"buscarEmpleado")}">Buscar empleado</a>
 		        </g:if>
 		        <g:else>
 						<p>No hay empleados</p>
 						</br>
-							<a href="${createLink(url:"agregarEmpleado")}">Agregar empleado</a>	        
+						<a href="${createLink(controller:"empleado", action:"agregarEmpleado")}">Agregar empleado</a>	        
 		        </g:else>
 		</div>	
-	    </div>
+	    </div> 
+
 	</body>
 </html>

@@ -1,8 +1,9 @@
 package empleadosCumple
 
-
 import org.springframework.web.servlet.ModelAndView
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_ADMIN'])
 class RegaloController {
 	def regaloService;
 	
@@ -25,4 +26,3 @@ class RegaloController {
 		redirect(controller: "Empleado", action:"index");
 	}
 }
-

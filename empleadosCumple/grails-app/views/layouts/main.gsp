@@ -25,6 +25,10 @@
 	<body>
 		<header class="principal" id="grailsLogo" role="banner">
 			<img class="logo" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/gift.png">
+			<div class="user">
+                USUARIO: <b> ${sec.username()} </b> <br>  
+                <a href="${createLink(controller:"empleado", action:"logout")}">Logout</a>
+            </div>
 		</header>
 		<section>
 			<g:layoutBody/>

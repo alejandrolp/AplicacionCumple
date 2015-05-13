@@ -23,6 +23,10 @@ article footer{
 	background: linear-gradient(0deg, rgb(200,200,200), rgb(255,255,255) 90%);
 }
 
+#grailsLogo{
+	height: 100px;
+}
+
 h3{
 	float: left;
 	width: 80px;
@@ -63,6 +67,15 @@ article{
 .row-form{
 	margin-left: 5px;
 	margin-top: 10px;
+}
+
+.logo{
+	float: left;
+}
+
+.user{
+	float: right;
+	 width: 200px;
 }
 
 input{
@@ -127,6 +140,16 @@ select:focus{
 	appearance: none;
 	outline-style: none; 
 	-moz-outline-style:none;
+}
+
+select[multiple] {
+    width: 225px;
+    height: 25px;
+}
+
+select[multiple] option{
+	margin: 0px;
+	padding: 0px;
 }
 
 input:hover{

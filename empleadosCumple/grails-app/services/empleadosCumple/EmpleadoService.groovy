@@ -6,11 +6,10 @@ import grails.transaction.Transactional
 @Transactional
 class EmpleadoService {
 	
-	def agregar(nombre, apellido,legajo, fecha){
+	def agregar(nombre, apellido, legajo, fecha, empresa) { 
 		if(!Empleado.findByLegajo(legajo)){
-			def nuevoEmpleado = new Empleado (nombre: nombre, apellido:apellido,legajo:legajo, fechaCumple: fecha);
+			def nuevoEmpleado = new Empleado (nombre: nombre, apellido:apellido,legajo:legajo, fechaCumple: fecha, empresa: empresa);
 			nuevoEmpleado.save(flush:true);
-			true
 		}else{false}
 	}
 	
@@ -26,9 +25,7 @@ class EmpleadoService {
 	
 	
 	def listarEmpleados(){		
-
 		int mesActual=new Date().month +1		
-		println 'mesActual: ' + mesActual
 		def empleadosMesActual = Empleado.where {
 			month(fechaCumple) == mesActual
 		}		

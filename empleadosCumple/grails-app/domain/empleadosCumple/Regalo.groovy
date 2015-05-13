@@ -12,4 +12,5 @@ class Regalo {
 		titulo nullable:false	
 		url nullable:false
     }
+    
 }
